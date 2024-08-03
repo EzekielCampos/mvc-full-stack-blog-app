@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS blog_pg_db;
+CREATE DATABASE blog_pg_db;
