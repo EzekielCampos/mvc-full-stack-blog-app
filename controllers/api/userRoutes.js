@@ -41,10 +41,12 @@ router.post('/login', async (req, res) => {
       }
   
       req.session.save(() => {
-        req.session.user_id = userData.id;
+        const userInfo = userData.get({plain:true});
+        const credentials = _.omit(userInfo, ['password']);
+        req.session.user_id = credentials.id;
         req.session.logged_in = true;
         
-        res.json({ user: userData, message: 'You are now logged in!' });
+        res.json({ user: credentials, message: 'You are now logged in!' });
       });
   
     } catch (err) {
