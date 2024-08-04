@@ -13,7 +13,7 @@ router.get('/', (req, res)=>{
 })
 
 
-router.get('/test', (req, res)=>{
+router.get('/login', (req, res)=>{
 
     try {
         res.render('login')
