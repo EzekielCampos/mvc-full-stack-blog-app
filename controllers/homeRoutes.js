@@ -16,11 +16,21 @@ router.get('/', (req, res)=>{
 router.get('/login', (req, res)=>{
 
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/');
         return;
       }
     
       res.render('login');
+})
+
+router.get('/signup', (req, res)=>{
+
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+      }
+    
+      res.render('new-user');
 })
 
 
