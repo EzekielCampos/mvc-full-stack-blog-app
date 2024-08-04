@@ -15,12 +15,12 @@ router.get('/', (req, res)=>{
 
 router.get('/login', (req, res)=>{
 
-    try {
-        res.render('login')
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
-
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+      }
+    
+      res.render('login');
 })
 
 
