@@ -17,8 +17,22 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+
+header{
+  background-color: #065b83;
+  height: 100px;
+
+  
 }
+
+header h1 a{
+
+  color: #ccc;
+  text-decoration: none;
+
+
+}
+
+
+
+
