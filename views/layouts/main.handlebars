@@ -49,19 +49,6 @@
                 aria-selected='false'
               >Dashboard</button>
             </li>
-            <li class='nav-item' role='presentation'>
-              <button
-                class='nav-link'
-                id='login-tab'
-                data-bs-toggle='tab'
-                data-bs-target='#login-tab-pane'
-                type='button'
-                role='tab'
-                aria-controls='login-tab-pane'
-                aria-selected='false'
-                onclick="location.href='/login'"
-              >Login</button>
-            </li>
             {{#if logged_in}}
               <li class='nav-item' role='presentation'>
                 <button
@@ -73,24 +60,27 @@
                   role='tab'
                   aria-controls='logout-tab-pane'
                   aria-selected='false'
-                  onclick="location.href='/'"
                 >Logout</button>
+              </li>
+            {{else}}
+              <li class='nav-item' role='presentation'>
+                <button
+                  class='nav-link'
+                  id='login-tab'
+                  data-bs-toggle='tab'
+                  data-bs-target='#login-tab-pane'
+                  type='button'
+                  role='tab'
+                  aria-controls='login-tab-pane'
+                  aria-selected='false'
+                  onclick="location.href='/login'"
+                >Login</button>
               </li>
             {{/if}}
 
           </ul>
 
         </nav>
-
-        {{!-- <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav> --}}
       </header>
       <main class='container container-fluid mt-5'>
         <!-- Render the sub layout -->
