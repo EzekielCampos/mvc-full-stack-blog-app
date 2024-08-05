@@ -23,5 +23,24 @@ router.post('/', withAuth, async(req, res) =>{
 
 })
 
+router.put('/update-post', async(req, res) =>{
+
+    const updatedDate = new Date();
+    try {
+      
+        const postData = await Post.update({
+            ...req.body,
+            date_created: updatedDate,
+          });
+
+          console.log(postData)
+
+          res.status(200).json(postData)
+    } catch (error) {
+       console.log(error)
+    }
+
+})
+
 
 module.exports = router;
