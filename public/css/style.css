@@ -33,6 +33,10 @@ header h1 a{
 
 }
 
+.comment-box {
+  display: none;
+  margin-top: 10px;
+}
 
 
 

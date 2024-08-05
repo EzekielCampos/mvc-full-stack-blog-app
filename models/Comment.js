@@ -11,10 +11,6 @@ Comment.init(
       primaryKey: true,
       allowNull: false,
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     description: {
       type: DataTypes.STRING,
     },
@@ -32,13 +28,13 @@ Comment.init(
       onDelete: 'CASCADE',
     },
     user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
       },
+      onDelete: 'CASCADE',
+    },
   },
   {
     sequelize,
