@@ -2,11 +2,11 @@
 
   </div><button class="btn btn-primary my-5 btn-lg" 
   onclick="location.href='/create'" 
-  type="submit">Add a Post</button>
+  >Add a Post</button>
        
 </div>
 
 
-{{#each posts}}
+{{#each posts as |post|}}
 {{> posts-details}}
 {{/each}}

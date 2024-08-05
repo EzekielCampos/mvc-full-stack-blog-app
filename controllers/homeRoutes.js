@@ -5,6 +5,8 @@ const { Post, User } = require('../models');
 
 router.get('/', async(req, res) => {
   try {
+
+    console.log(req.session.user_id);
     const userPosts = await Post.findAll({
       include: [
         {
@@ -15,6 +17,7 @@ router.get('/', async(req, res) => {
     });
 
     const posts = userPosts.map((post)=>post.get({plain:true}))
+    console.log(posts);
 
     res.render('homepage', { posts, logged_in: req.session.logged_in });
   } catch (error) {
