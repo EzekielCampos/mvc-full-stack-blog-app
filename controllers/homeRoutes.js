@@ -61,7 +61,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   } catch (error) {}
 });
 
-router.get('/modify/:id', async (req, res) => {
+router.get('/modify/:id',withAuth, async (req, res) => {
 
   try {
     req.session.post_id = req.params.id;
@@ -73,7 +73,7 @@ router.get('/modify/:id', async (req, res) => {
   }
 });
 
-router.get('/modify', async (req, res) => {
+router.get('/modify', withAuth, async (req, res) => {
 
   try {
     const specificPost = await Post.findByPk(req.session.post_id, {raw:true});

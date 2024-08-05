@@ -1,9 +1,6 @@
 
-{{#each list}}
-{{> dashboard-display}}
-{{/each}}
 
- <div class="d-grid gap-2 col-3 mx-auto">
+<div class="d-grid gap-2 col-3 mx-auto">
 
 <button class="btn btn-primary my-5 btn-lg" 
   onclick="location.href='/create'" 
@@ -11,3 +8,8 @@
   </div>
        
 </div>
+{{#each list}}
+{{> dashboard-display}}
+{{/each}}
+
+ 
