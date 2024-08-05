@@ -24,3 +24,11 @@ const updateFormData = async (event) => {
   };
   
   document.querySelector('.update-post-form').addEventListener('submit', updateFormData);
+
+  document.getElementById('delete-btn').addEventListener('click', (event)=>{
+
+    event.preventDefault();
+    console.log('hi')
+
+
+  });
