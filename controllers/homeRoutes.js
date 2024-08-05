@@ -30,7 +30,6 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login', { logged_in: req.session.logged_in });
 });
 
@@ -45,6 +44,27 @@ router.get('/signup', (req, res) => {
 
 router.get('/create', withAuth, (req, res) => {
   res.render('new-post', { logged_in: req.session.logged_in });
+});
+
+router.get('/dashboard', withAuth, async(req, res) => {
+
+try {
+
+   const userPosts = await Post.findAll({where:{
+    user_id:req.session.user_id
+  }})
+
+  const list = userPosts.map((post)=>post.get({plain:true}))
+  
+  console.log(list)
+  
+  res.render('dashboard', { list, logged_in: req.session.logged_in });
+} catch (error) {
+  
+}
+
+
+  
 });
 
 module.exports = router;
