@@ -31,7 +31,9 @@ router.put('/update-post', async(req, res) =>{
         const postData = await Post.update({
             ...req.body,
             date_created: updatedDate,
-          });
+          }, {   where: {
+            id: req.session.post_id
+          }});
 
           console.log(postData)
 

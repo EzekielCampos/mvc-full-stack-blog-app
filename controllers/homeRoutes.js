@@ -62,13 +62,31 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/modify/:id', async (req, res) => {
-  try {
 
-    const specificPost = await Post.findByPk(req.params.id, {raw:true});
-   console.log(specificPost);
+  try {
+    req.session.post_id = req.params.id;
+   console.log(req.session.post_id)
+   res.redirect('/modify');
+
+  } catch (error) {
+    res.json(error)
+  }
+});
+
+router.get('/modify', async (req, res) => {
+
+  try {
+    const specificPost = await Post.findByPk(req.session.post_id, {raw:true});
+   console.log(specificPost)
+   console.log(req.session.post_id)
     res.render('update-post', {...specificPost, logged_in: req.session.logged_in })
 
-  } catch (error) {}
+  } catch (error) {
+    res.json(error)
+  }
 });
+
+
+
 
 module.exports = router;
