@@ -1,14 +1,14 @@
 const { response } = require("express");
 
 
-const postFormData = async()=>{
+const postFormData = async(event)=>{
 
+    event.preventDefault()
 
     const title = document.querySelector('#post-title').value.trim();
     const description = document.querySelector('#post-desc').value.trim();
 
     if(title && description){
-
         const response = await fetch('api/post',{
             method: 'POST',
             body: JSON.stringify({ title, description }),
@@ -27,14 +27,5 @@ const postFormData = async()=>{
 }
 
 
-
-
-
-
-
-
-
-
-
 document.querySelector('.new-post-form').
-addEventListener("submit")
+addEventListener("submit", postFormData)
