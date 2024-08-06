@@ -10,6 +10,8 @@ const submitComment = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
+    console.log(result);
+
     if (result.ok) {
       document.location.replace('/');
     } else {

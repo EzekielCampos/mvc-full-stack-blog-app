@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     });
 
     const posts = userPosts.map((post) => post.get({ plain: true }));
-    console.log(posts[0].comments);
+    console.log(posts);
 
     res.render('homepage', { posts, logged_in: req.session.logged_in });
   } catch (error) {
