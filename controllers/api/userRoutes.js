@@ -7,7 +7,6 @@ const _ = require('lodash');
 router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body, { raw: true });
-
     req.session.save(() => {
       const userInfo = _.omit(userData, ['password']);
       req.session.user_id = userInfo.id;

@@ -86,6 +86,34 @@ router.get('/modify', withAuth, async (req, res) => {
   }
 });
 
+router.get('/comment/:id', withAuth, async (req, res) => {
+
+  try {
+    const specificPost = await Post.findByPk(req.params.id, {raw:true});
+    req.session.post_id = req.params.id;
+   console.log(specificPost)
+   console.log(req.session.post_id)
+    res.render('comment', {...specificPost, logged_in: req.session.logged_in })
+
+  } catch (error) {
+    res.json(error)
+  }
+});
+
+
+router.get('/submit-comment', withAuth, async (req, res) => {
+
+  try {
+    const specificPost = await Post.findByPk(req.session.post_id, {raw:true});
+   console.log(specificPost)
+   console.log(req.session.post_id)
+    res.render('submit-comment', {...specificPost, logged_in: req.session.logged_in })
+
+  } catch (error) {
+    res.json(error)
+  }
+});
+
 
 
 
