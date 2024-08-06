@@ -24,11 +24,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.get('/view/post/:id', async (req, res) => {
   try {
     console.log(req.params.id);
-    const userPosts = await Post.findByPk(req.params.id,{
+    const userPosts = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -40,14 +39,13 @@ router.get('/view/post/:id', async (req, res) => {
             {
               model: User,
               attributes: ['name'],
-            },]
+            },
+          ],
         },
       ],
     });
 
-
-
-    const posts = userPosts.get({plain:true})
+    const posts = userPosts.get({ plain: true });
     console.log(posts);
 
     res.render('posts-details', { ...posts, logged_in: req.session.logged_in });
@@ -93,58 +91,46 @@ router.get('/dashboard', withAuth, async (req, res) => {
   } catch (error) {}
 });
 
-router.get('/modify/:id',withAuth, async (req, res) => {
-
+router.get('/modify/:id', withAuth, async (req, res) => {
   try {
     req.session.post_id = req.params.id;
-   console.log(req.session.post_id)
-   res.redirect('/modify');
-
+    console.log(req.session.post_id);
+    res.redirect('/modify');
   } catch (error) {
-    res.json(error)
+    res.json(error);
   }
 });
 
 router.get('/modify', withAuth, async (req, res) => {
-
   try {
-    const specificPost = await Post.findByPk(req.session.post_id, {raw:true});
-   console.log(specificPost)
-   console.log(req.session.post_id)
-    res.render('update-post', {...specificPost, logged_in: req.session.logged_in })
-
+    const specificPost = await Post.findByPk(req.session.post_id, { raw: true });
+    console.log(specificPost);
+    console.log(req.session.post_id);
+    res.render('update-post', { ...specificPost, logged_in: req.session.logged_in });
   } catch (error) {
-    res.json(error)
+    res.json(error);
   }
 });
 
 router.get('/comment/:id', withAuth, async (req, res) => {
-
   try {
     req.session.post_id = req.params.id;
-   console.log(req.session.post_id)
-   res.redirect('/submit-comment');
-
+    console.log(req.session.post_id);
+    res.redirect('/submit-comment');
   } catch (error) {
-    res.json(error)
+    res.json(error);
   }
 });
-
 
 router.get('/submit-comment', withAuth, async (req, res) => {
-
   try {
-    const specificPost = await Post.findByPk(req.session.post_id, {raw:true});
-   console.log(specificPost)
-   console.log(req.session.post_id)
-    res.render('submit-comment', {...specificPost, logged_in: req.session.logged_in })
-
+    const specificPost = await Post.findByPk(req.session.post_id, { raw: true });
+    console.log(specificPost);
+    console.log(req.session.post_id);
+    res.render('submit-comment', { ...specificPost, logged_in: req.session.logged_in });
   } catch (error) {
-    res.json(error)
+    res.json(error);
   }
 });
-
-
-
 
 module.exports = router;
