@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../middleware/auth');
 
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -12,11 +12,14 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+        },
       ],
     });
 
     const posts = userPosts.map((post) => post.get({ plain: true }));
-    console.log(posts);
+    console.log(posts[0].comments);
 
     res.render('homepage', { posts, logged_in: req.session.logged_in });
   } catch (error) {

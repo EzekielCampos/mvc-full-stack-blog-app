@@ -8,9 +8,9 @@ Comment.init(
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
       allowNull: false,
-    },
+      primaryKey: true,
+    },  
     description: {
       type: DataTypes.STRING,
     },
