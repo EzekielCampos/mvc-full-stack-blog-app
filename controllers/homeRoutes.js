@@ -12,6 +12,28 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+      ],
+    });
+
+    const posts = userPosts.map((post) => post.get({ plain: true }));
+    console.log(posts[0].comments);
+
+    res.render('homepage', { posts, logged_in: req.session.logged_in });
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+});
+
+
+router.get('/view/post/:id', async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const userPosts = await Post.findByPk(req.params.id,{
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
         {
           model: Comment,
           include: [
@@ -23,10 +45,12 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const posts = userPosts.map((post) => post.get({ plain: true }));
-    console.log(posts[0].comments);
 
-    res.render('homepage', { posts, logged_in: req.session.logged_in });
+
+    const posts = userPosts.get({plain:true})
+    console.log(posts);
+
+    res.render('posts-details', { ...posts, logged_in: req.session.logged_in });
   } catch (error) {
     console.error('An error occurred:', error);
   }
