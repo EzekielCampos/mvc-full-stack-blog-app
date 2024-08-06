@@ -17,9 +17,9 @@
 
 <div class='container'>
   <div class='justify-content-center'>
-    <div class='comment-form mt-4' data-id='{{id}}'>
+    <div class='comment-form mt-4'>
 
-      <form id='comment-frm'>
+      <form id='comment-frm' data-id ="{{id}}">
         <div class='form-group mx-auto col-9'>
           <textarea
             class='form-control'
@@ -34,7 +34,7 @@
           <button
             id='delete-btn'
             class='btn btn-primary'
-            onclick="location.href='/'"
+            onclick="location.href='view/post/{{id}}'"
           >Cancel</button>
 
         </div>

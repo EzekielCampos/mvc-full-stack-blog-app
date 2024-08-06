@@ -1,7 +1,12 @@
 
 const submitComment = async (event) => {
     event.preventDefault();
+
+  let postId = document.querySelector("#comment-frm");
   const description = document.querySelector('#user-comment').value.trim();
+
+  postId = postId.dataset.id;
+
 
   if (description) {
     const result = await fetch('api/create-comment', {
@@ -13,7 +18,7 @@ const submitComment = async (event) => {
     console.log(result);
 
     if (result.ok) {
-      document.location.replace('/');
+      document.location.replace(`view/post/${postId}`);
     } else {
       alert(response.statusText);
     }
