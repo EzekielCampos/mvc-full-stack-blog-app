@@ -1,5 +1,5 @@
-<a href='/comment/{{id}}' style='text-decoration: none;'>
-<div class='container mb-5 p-5'>
+
+<div class='container p-5'>
 
   <div class='card'>
     <div
@@ -11,23 +11,34 @@
     </div>
     <div class='card-body fs-1' style='height: 100px;'>
       <p class='card-text'> {{description}}</p>
-      <button class="btn btn-primary" id="comm-btn">Comment</button>
-
-
-     {{#if comments}}
-      <div class="mt-4" data-id="{{id}}">
-        {{#each comments}}
-
-<p>{{description}}</p>
-{{/each}}
+      <button class="btn btn-primary" id="comm-btn" onclick="location.href='/comment/{{id}}'">Comment</button>
       </div>
     </div>
-    {{/if}}
+     {{#each comments}}
+<div class='container col-9'>
+  <div class='card'>
+    <div
+      class='card-header d-flex justify-content-between align-items-center bg-danger'
+      style='height: 50px;'
+    >
+      <h5 class='mb-0'>{{title}}</h5>
+      <small>Commented by {{user.name}} on {{format_date date_created}}</small>
+    </div>
+    <div class='card-body fs-1' style='height: 100px;'>
+      <p class='card-text'> {{description}}</p>
+      </div>
+    </div>
   </div>
-</div>
 
 
-</a>
+{{/each}}
+
+
+
+
+
+
+
 
     
 

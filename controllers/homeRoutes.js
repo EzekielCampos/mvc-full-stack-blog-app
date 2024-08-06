@@ -14,12 +14,17 @@ router.get('/', async (req, res) => {
         },
         {
           model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },]
         },
       ],
     });
 
     const posts = userPosts.map((post) => post.get({ plain: true }));
-    console.log(posts);
+    console.log(posts[0].comments);
 
     res.render('homepage', { posts, logged_in: req.session.logged_in });
   } catch (error) {
@@ -92,11 +97,9 @@ router.get('/modify', withAuth, async (req, res) => {
 router.get('/comment/:id', withAuth, async (req, res) => {
 
   try {
-    const specificPost = await Post.findByPk(req.params.id, {raw:true});
     req.session.post_id = req.params.id;
-   console.log(specificPost)
    console.log(req.session.post_id)
-    res.render('comment', {...specificPost, logged_in: req.session.logged_in })
+   res.redirect('/submit-comment');
 
   } catch (error) {
     res.json(error)
