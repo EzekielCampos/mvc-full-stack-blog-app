@@ -16,15 +16,15 @@ router.get('/', async (req, res) => {
     });
 
     const posts = userPosts.map((post) => post.get({ plain: true }));
-    console.log(posts[0].comments);
+    console.log(posts);
 
-    res.render('homepage', { posts, logged_in: req.session.logged_in });
+    res.render('homepage', {posts, logged_in: req.session.logged_in });
   } catch (error) {
     console.error('An error occurred:', error);
   }
 });
 
-router.get('/view/post/:id', async (req, res) => {
+router.get('/view/post/:id',withAuth, async (req, res) => {
   try {
     console.log(req.params.id);
     const userPosts = await Post.findByPk(req.params.id, {
