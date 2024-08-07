@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comment extends Model {}
-
+// This model will hold all the comments and save to database
 Comment.init(
   {
     id: {
@@ -19,6 +19,7 @@ Comment.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    // Will reference which post it belongs to
     post_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -27,6 +28,7 @@ Comment.init(
       },
       onDelete: 'CASCADE',
     },
+    // Reference which user created that post
     user_id: {
       type: DataTypes.INTEGER,
       references: {

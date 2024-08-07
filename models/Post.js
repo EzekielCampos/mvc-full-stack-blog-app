@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Post extends Model {}
-
+// This model will hold all the post and save to database
 Post.init(
   {
     id: {
@@ -23,6 +23,7 @@ Post.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    // Will reference which user created the post
     user_id: {
       type: DataTypes.INTEGER,
       references: {

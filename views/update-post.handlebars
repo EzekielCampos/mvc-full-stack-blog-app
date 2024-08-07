@@ -1,3 +1,4 @@
+{{!-- When user selects a certain post on their dashboard they have the option to update or delete the post --}}
 <div class="card my-5">
   <div class="card-header p-3">
   <h2>Update a Post</h2>
@@ -14,24 +15,16 @@
         <label for="post-desc">Description:</label>
         <textarea class="form-input" id="post-desc" name="post-desc">{{description}}</textarea>
       </div>
+      {{!-- The buttons to update or delete post --}}
       <div class="d-grid gap-2 col-6 mx-auto mt-4">
         <button type="submit" id="update-btn" class="btn btn-primary">Update</button>
         <button id="delete-btn" class="btn btn-primary">Delete</button>
-
       </div>
-   
-
-      {{!-- <div class="form-group">
-        <button type="submit" id="update-btn" class="btn btn-primary">Update</button>
-      </div>
-       <div class="form-group">
-        <button id="delete-btn" class="btn btn-primary">Delete</button>
-      </div> --}}
     </form>
   </div>
   </div>
   </div>
 </div>
 </div>
-
+{{!-- The js logic to delete or update a post using the fetch method --}}
 <script src = "./js/update-post.js"></script>

@@ -10,11 +10,10 @@
     </div>
     <div class='card-body fs-1' style='height: 100px;'>
       <p class='card-text'> {{description}}</p>
-      {{! <button class="btn btn-primary" id="comm-btn" onclick="location.href='/'">Comment</button> }}
     </div>
   </div>
 </div>
-
+{{!-- This is the form that takes user input to submit a comment for the post above --}}
 <div class='container'>
   <div class='justify-content-center'>
     <div class='comment-form mt-4'>
@@ -43,5 +42,5 @@
 
   </div>
 </div>
-
+{{!-- This is the logic to create a new comment using a fetch request --}}
 <script src='./js/comment.js' defer></script>

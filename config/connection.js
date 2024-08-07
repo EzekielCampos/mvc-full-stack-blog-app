@@ -3,6 +3,7 @@ require('dotenv').config();
 
 let sequelize;
 
+// This will create the connection to the database with credentials
 if (process.env.DB_URL) {
   sequelize = new Sequelize(process.env.DB_URL);
 } else {

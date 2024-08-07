@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-
+// This method will verify that the password that was entered matches
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
-
+// This model will hold all the users information and save to database
 User.init(
   {
     id: {
@@ -37,11 +37,13 @@ User.init(
     },
   },
   {
+    // Before a User is created it will hash out the password that was entered in by the user
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
+      // Before an update then it will hash out the password
       beforeUpdate: async (updatedUserData) => {
         if (updatedUserData.changed('password')) {
           updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);

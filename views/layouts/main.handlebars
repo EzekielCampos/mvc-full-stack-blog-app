@@ -23,7 +23,7 @@
           <a id='main-title' href='/'>The Tech Blog</a>
         </h1>
         <nav>
-
+          {{! The navbar will allow the user to navigate to different pages in the application }}
           <ul class='nav nav-tabs' id='myTab' role='tablist'>
             <li class='nav-item' role='presentation'>
               <button
@@ -50,11 +50,12 @@
                 aria-selected='false'
                 onclick="location.href='/dashboard'"
               >Dashboard</button>
-            </li> {{#if logged_in}}
-           
+            </li>
+            {{#if logged_in}}
+            {{!-- This tab will only appear if the user is logged in  --}}
               <li class='nav-item' role='presentation'>
                 <button
-                  class='toggle nav-link' 
+                  class='toggle nav-link'
                   id='logout'
                   data-bs-toggle='tab'
                   data-bs-target='#logout-tab-pane'

@@ -1,9 +1,10 @@
 
  {{#if posts}}
-
+{{!-- If there posts then it will display all of them on the homepage --}}
 {{#each posts}}
 {{> home-display}}
 {{/each}}
+{{!-- If it's empty then a button will appear that will give the user the option to create one --}}
 {{else}}
 <div class="d-grid gap-2 col-3 mx-auto">
 

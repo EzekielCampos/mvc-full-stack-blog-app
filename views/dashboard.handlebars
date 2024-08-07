@@ -1,16 +1,18 @@
 
-
+{{!-- The dashboard page displays all the current users post --}}
 <div class="d-grid gap-2 col-3 mx-auto">
-
+{{!-- This gives the user the option to create another post --}}
 <button class="btn btn-primary my-5 btn-lg" 
   onclick="location.href='/create'" 
   >Add a Post</button>
   </div>
        
 </div>
+{{!-- Below all the posts will be displayed --}}
 {{#if list}}
 <h2 class="mb-5">My Posts:</h2>
 {{/if}}
+{{!-- Redirects to the partial to display each post from the array --}}
 {{#each list}}
 {{> dashboard-display}}
 {{/each}}

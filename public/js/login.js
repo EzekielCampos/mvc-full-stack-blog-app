@@ -1,4 +1,6 @@
+// This will take the user credentials to verify that an account exists
 const loginFormHandler = async (event) => {
+  // Prevent the page from refreshing
   event.preventDefault();
 
   // Collect values from the login form
@@ -17,15 +19,10 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
     } else {
-
       const result = await response.json();
       alert(result.message);
     }
   }
 };
-
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
-
-
+// This event listener is waiting for when the form is submitted
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
