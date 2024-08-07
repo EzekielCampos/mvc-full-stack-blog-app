@@ -1,0 +1,93 @@
+<div class='container p-5'>
+
+  <div class='card'>
+    <div
+      class='card-header d-flex justify-content-between align-items-center'
+      style='height: 50px;'
+    >
+      <h5 class='mb-0'>{{title}}</h5>
+      <small>Posted by {{user.name}} on {{format_date date_created}}</small>
+    </div>
+    <div class='card-body fs-1' style='height: 100px;'>
+      <p class='card-text'>{{description}}</p>
+      <div class='d-flex justify-content-center'>
+        <button
+          class='btn btn-primary btn-md'
+          id='comm-btn'
+          onclick="location.href='/comment/{{id}}'"
+        >Comment</button>
+      </div>
+    </div>
+  </div>
+
+  {{#each comments}}
+    <div class='container col-9'>
+      <div class='card'>
+        <div
+          class='card-header d-flex justify-content-between align-items-center bg-danger'
+          style='height: 50px;'
+        >
+          <h5 class='mb-0'>{{title}}</h5>
+          <small>Commented by {{user.name}} on {{format_date date_created}}</small>
+        </div>
+        <div class='card-body fs-1' style='height: 100px;'>
+          <p class='card-text'> {{description}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+{{!-- <div class='container mb-5 p-5'>
+
+  <div class='card'>
+    <div
+      class='card-header d-flex justify-content-between align-items-center'
+      style='height: 50px;'
+    >
+      <h5 class='mb-0'>{{title}} </h5>
+      <small>Posted by {{user.name}} on {{format_date date_created}}</small>
+    </div>
+    <div class='card-body fs-1' style='height: 100px;'>
+      <p class='card-text'> {{description}}</p>
+      <button class="btn btn-primary" id="comm-btn">Comment</button>
+
+      <div class="comment-form mt-4" data-id="{{id}}" style=""";">
+        <form>
+          <div class="form-group">
+            <textarea class="form-control" rows="3" placeholder="Write your comment here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="comments-section">
+      <!-- Comments will be appended here -->
+    </div>
+  </div>
+</div> --}}
+
+{{!-- 
+  <div class='container mt-5'>
+
+    <div class='card'>
+      <div
+        class='card-header d-flex justify-content-between align-items-center'
+        style='height: 50px;'
+      >
+        <h5 class='mb-0'>{{title}} </h5>
+        <small>Posted by {{user.name}} on {{format_date date_created}}</small>
+      </div>
+      <div class='card-body fs-1' style='height: 100px;'>
+        <p class='card-text'> {{description}}</p>
+           {{#if comments}}
+
+           <div mt-4>
+            <p>hi</p>
+           </div>
+   
+       {{/if}}
+  </div>
+
+</div>
+</div> --}}
