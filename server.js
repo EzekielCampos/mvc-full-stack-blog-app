@@ -18,7 +18,7 @@ const hbs = exphbs.create({ helpers });
 
 // This is all the data for the session and cookie
 const sess = {
-  secret: 'Super secret secret COOOOOKIE',
+  secret: process.env.SECRET,
   cookie: {
     maxAge: 300000,
     httpOnly: true,
