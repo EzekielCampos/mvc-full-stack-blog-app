@@ -93,7 +93,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const list = userPosts.map((post) => post.get({ plain: true }));
 
     res.render('dashboard', { list, logged_in: req.session.logged_in });
-  } catch (error) {}
+  } catch (error) {
+    res.status(400).json(error)
+  }
 });
 
 router.get('/modify/:id', withAuth, async (req, res) => {
