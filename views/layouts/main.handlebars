@@ -17,7 +17,7 @@
 
   <body>
     <div class='flex-column justify-space-around'>
-      <header class='display-flex justify-space-between align-center p-2'>
+      <header class='display-flex justify-space-between align-center p-2 bg-dark'>
 
         <h1>
           <a id='main-title' href='/'>The Tech Blog</a>
@@ -27,7 +27,7 @@
           <ul class='nav nav-tabs' id='myTab' role='tablist'>
             <li class='nav-item' role='presentation'>
               <button
-                class='toggles nav-link'
+                class='toggles nav-link text-light'
                 id='home-tab'
                 data-bs-toggle='tab'
                 data-bs-target='#home-tab-pane'
@@ -40,7 +40,7 @@
             </li>
             <li class='nav-item' role='presentation'>
               <button
-                class='toggle nav-link'
+                class='toggle nav-link text-light'
                 id='profile-tab'
                 data-bs-toggle='tab'
                 data-bs-target='#dashboard-tab-pane'
@@ -55,7 +55,7 @@
             {{!-- This tab will only appear if the user is logged in  --}}
               <li class='nav-item' role='presentation'>
                 <button
-                  class='toggle nav-link'
+                  class='toggle nav-link text-light'
                   id='logout'
                   data-bs-toggle='tab'
                   data-bs-target='#logout-tab-pane'
@@ -68,7 +68,7 @@
             {{else}}
               <li class='nav-item' role='presentation'>
                 <button
-                  class='toggle nav-link'
+                  class='toggle nav-link text-light'
                   id='login-tab'
                   data-bs-toggle='tab'
                   data-bs-target='#login-tab-pane'
