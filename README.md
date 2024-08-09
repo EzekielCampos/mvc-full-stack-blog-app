@@ -37,6 +37,13 @@ To install this project you can either clone the repo or download all the files.
 ## Usage
 
 In order to run the application run, start the server with the command “node server.js” or “npm run start”.  After that head to whatever port that the application is running on and it can be viewed on the frontend.  To create an account head to the Login page and click on the create user link.  Once there create an account and then it will redirect to that users dashboard page will give the option to add a post.  User has the option to update or delete a post that they have made by clicking on a specific post on the dashboard page.  In addition user can comment on other posts by heading to the home page and clicking on that post.
+
+### Deployed App
+https://mvc-tech-blog-app.onrender.com/
+
+### Screenshot
+![alt](./public/img/tech-blog-main.png)
+
 ## Contributing
 
 N/A

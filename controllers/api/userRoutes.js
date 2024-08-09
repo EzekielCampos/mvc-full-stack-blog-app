@@ -6,7 +6,8 @@ const _ = require('lodash');
 router.post('/signup', async (req, res) => {
   try {
     // This will create a new user from req.body and convert it to raw data
-    const userData = await User.create(req.body, { raw: true });
+    let userData = await User.create(req.body);
+    userData = userData.get({plain:true});
     req.session.save(() => {
       // Omit the password when we send back a response
       const userInfo = _.omit(userData, ['password']);
